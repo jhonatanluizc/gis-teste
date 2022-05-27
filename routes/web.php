@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ConsultaController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/dashboard', [ViewController::class, 'dashboard']);
+
+// Route::get('/login', [UserController::class, 'searchByAllRepos']);
+
+Route::prefix('consulta')->group(function () {
+    Route::get('/all', [ConsultaController::class, 'index']);
+    Route::get('/store', [ConsultaController::class, 'store']);
+});
+
+Route::prefix('user')->group(function () {
+    Route::get('/store', [UserController::class, 'store']);
+    Route::get('/update', [UserController::class, 'update']);
+    Route::get('/delete', [UserController::class, 'delete']);
 });
