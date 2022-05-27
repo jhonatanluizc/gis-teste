@@ -6,3 +6,8 @@
 <h6> Mysql </h6>
 
 Não Esquecer de Rodar o Migrate para gerar as Tabelas e o Seeder para assim gerar o Usuario
+
+Usuario Que será criado após rodar o Seeder
+
+email : admin@gmail.com
+password: admin
