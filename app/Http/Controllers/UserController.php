@@ -27,9 +27,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        return $request->input();
+        $Newpassword = $request->input('password');
+        $this->User->changePassword($Newpassword);
+        session()->forget('email');
+        session()->flush();
+        return redirect('/');
     }
 
 }

@@ -138,5 +138,9 @@
         <div class="change password">
             <button id="changePassword" class="btn btn-primary"> Mudar Senha do Usuário </button>
         </div>
+
+        <div class="change password">
+            <a href="/logout"><button class="btn btn-primary">Deslogar</button></a>
+        </div>
     </div>
     @stop

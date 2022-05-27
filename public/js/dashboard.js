@@ -43,7 +43,7 @@ $(document).ready(function () {
 
     function mountFormCreate() {
         let form =
-            `<form action='/consulta/store' >
+        `<form action='/consulta/store' >
         <br>
         <div class="form-group">
           <label for="nomePaciente">Nome do Paciente</label>
@@ -84,7 +84,7 @@ $(document).ready(function () {
 
     function mountFormEdit(data) {
         let form =
-            `<form action='/consulta/update' >
+        `<form action='/consulta/update' >
         <div class="form-group">
           <label for="nomePaciente">Id da Consulta</label>
           <input type="text" name="id" class="form-control" id="nomePaciente" value='${data.id}' readonly >
@@ -129,7 +129,7 @@ $(document).ready(function () {
 
     function mountFormUserChangePassword() {
       let form =
-            `<form action='/user/update' target='/user/update' >
+        `<form action='/user/update' >
         <div class="form-group">
           <label for="novaSenha">Nova Senha</label>
           <input type="password" name="password" class="form-control">

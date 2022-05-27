@@ -21,6 +21,8 @@ Route::get('/', [ViewController::class, 'index']);
 Route::get('/dashboard', [ViewController::class, 'dashboard']);
 
 Route::get('/login', [ViewController::class, 'login']);
+Route::get('/logout', [ViewController::class, 'logOut']);
+
 
 Route::prefix('consulta')->group(function () {
     Route::post('/store', [ConsultaController::class, 'store']);
@@ -29,5 +31,5 @@ Route::prefix('consulta')->group(function () {
 });
 
 Route::prefix('user')->group(function () {
-    Route::post('/update', [UserController::class, 'update']);
+    Route::get('/update', [UserController::class, 'update']);
 });

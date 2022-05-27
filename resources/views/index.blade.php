@@ -10,18 +10,20 @@
             <div class="card-body">
                 <h3 class="card-title text-center">Sistema de Cadastro de Consulta de uma Clinica de Odontológica</h3>
                 <div class="card-text">
-                    <!--
-			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
-                    <form method="POST" action="/login">
+                    @if( Session::has( 'warning' ))
+                        <h6 class="card-title text-center" style="color:red">{{ Session::get( 'warning' ) }}</h6>
+                    @endif
+                    <form action="/login">
                         <!-- to error: add class "has-danger" -->
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email</label>
-                            <input type="email" name="email" class="form-control form-control-sm" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <input type="email" name="email" class="form-control form-control-sm"
+                                id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Senha</label>                            
-                            <input type="password" name="password" class="form-control form-control-sm" id="exampleInputPassword1">
+                            <label for="exampleInputPassword1">Senha</label>
+                            <input type="password" name="password" class="form-control form-control-sm"
+                                id="exampleInputPassword1">
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Entrar</button>
                     </form>

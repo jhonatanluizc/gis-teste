@@ -19,26 +19,41 @@ class ViewController extends Controller
     
     public function index()
     {
+        if(session('email')){
+            return redirect('/dashboard');
+        }
+
         return view('index');
     }
 
     public function login(Request $request)
     {
         $data = $request->input();
-        $reponse = $this->User->validateUser($data);
+        $response = $this->User->validateUser($data);
 
-        if(!$reponse){
-            dd('Nao Achei');
+        if(!$response){
+            return redirect()->back()->withWarning( 'Login Incorreto' );
         }
 
-        dd('Achei');
+        session(['email' => $data['email'] ]);
+        return redirect('/dashboard');
 
+    }
+
+    public function logOut()
+    {
+        session()->forget('email');
+        session()->flush();
+        return redirect('/');
     }
 
     public function dashboard()
     {
-        $consultas = $this->Consulta->allPaginate();
+        if(!session('email')){
+            return redirect('/');
+        }
 
+        $consultas = $this->Consulta->allPaginate();
         return view('dashboard', [ 'consultas' => $consultas ]);
     }
 }
