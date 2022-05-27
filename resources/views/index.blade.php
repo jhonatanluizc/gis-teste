@@ -8,7 +8,7 @@
     <div class="global-container">
         <div class="card login-form">
             <div class="card-body">
-                <h3 class="card-title text-center">Sistema de Cadastro de Consulta de uma Clinica de Odontológica</h3>
+                <h3 class="card-title text-center">Sistema de Cadastro de Consulta de uma Clinica Odontológica</h3>
                 <div class="card-text">
                     @if( Session::has( 'warning' ))
                         <h6 class="card-title text-center" style="color:red">{{ Session::get( 'warning' ) }}</h6>
