@@ -5,4 +5,4 @@
 <h6> PHP 7.4 </h6>
 <h6> Mysql </h6>
 
-Não Esquecer de Rodar o Migrate para gerar as tabelas e o Seeder para assim gerar o usuario e logar no Sistema
+Não Esquecer de Rodar o Migrate para gerar as Tabelas e o Seeder para assim gerar o Usuario
