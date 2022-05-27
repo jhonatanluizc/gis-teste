@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory()->create(['name' => 'admin' ,'email' => 'admin@gmail.com', 'password' => 'admin']);
+        \App\Models\User::factory()->create(['name' => 'admin' ,'email' => 'admin@gmail.com', 'password' =>  \Hash::make('admin') ]);
         \App\Models\Consulta::factory(3)->create();
 
     }

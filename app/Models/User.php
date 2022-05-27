@@ -43,14 +43,29 @@ class User extends Authenticatable
     ];
 
     public function validateUser($data) {
-        return User::where(['email' => $data['email'], 'password' => $data['password'] ])->first();
+        $user = User::where([
+        'email' => $data['email'],
+        ])->first();
+
+        if(!$user){
+            return null;
+        }
+
+        if(!\Hash::check($data['password'], $user->password)){
+            return null;
+        }
+
+        return $user;
+
+
+        
     }
 
     public function changePassword($Newpassword)
     {
         return User::where('email', session('email') )
         ->update([
-            'password' => $Newpassword,
+            'password' =>  \Hash::make($Newpassword),
         ]);
     }
 }

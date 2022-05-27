@@ -25,9 +25,9 @@ Route::get('/logout', [ViewController::class, 'logOut']);
 
 
 Route::prefix('consulta')->group(function () {
-    Route::post('/store', [ConsultaController::class, 'store']);
-    Route::post('/update', [ConsultaController::class, 'update']);
-    Route::post('/delete/{id}', [ConsultaController::class, 'destroy']);
+    Route::get('/store', [ConsultaController::class, 'store']);
+    Route::get('/update', [ConsultaController::class, 'update']);
+    Route::get('/delete/{id}', [ConsultaController::class, 'destroy']);
 });
 
 Route::prefix('user')->group(function () {

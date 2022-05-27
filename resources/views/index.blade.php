@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('title', 'Homepage')
+@section('title', 'Tela De Login')
 @section('css')
 <link href="{{ asset('css/index.css') }}" rel="stylesheet">
 <script src="{{ asset('js/index.js') }}"></script>
