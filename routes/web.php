@@ -16,21 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [ViewController::class, 'index']);
 
 Route::get('/dashboard', [ViewController::class, 'dashboard']);
 
-// Route::get('/login', [UserController::class, 'searchByAllRepos']);
+Route::get('/login', [ViewController::class, 'login']);
 
 Route::prefix('consulta')->group(function () {
-    Route::get('/all', [ConsultaController::class, 'index']);
-    Route::get('/store', [ConsultaController::class, 'store']);
+    Route::post('/store', [ConsultaController::class, 'store']);
+    Route::post('/update', [ConsultaController::class, 'update']);
+    Route::post('/delete/{id}', [ConsultaController::class, 'destroy']);
 });
 
 Route::prefix('user')->group(function () {
-    Route::get('/store', [UserController::class, 'store']);
-    Route::get('/update', [UserController::class, 'update']);
-    Route::get('/delete', [UserController::class, 'delete']);
+    Route::post('/update', [UserController::class, 'update']);
 });

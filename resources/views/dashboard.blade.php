@@ -5,7 +5,7 @@
 <script src="{{ asset('js/dashboard.js') }}"></script>
 @stop
     @section('content')
-    <div class="area"></div>
+    <!-- <div class="area"></div>
     <nav class="main-menu">
         <ul>
             <li>
@@ -96,9 +96,12 @@
                 </a>
             </li>
         </ul>
-    </nav>
+    </nav> -->
 
     <div class="dash-content">
+        <div class="create button">
+            <button id="createConsultaEvent" class="btn btn-primary"> Criar Consulta </button>
+        </div>
         <div class="table-box">
             <table id="tabela_consulta" class="table">
                 <thead>
@@ -122,13 +125,18 @@
                             <td>{{ $valor->observacao }}</td>
                             <td>{{ $valor->data_consulta }}</td>
                             <td>{{ $valor->dentista_responsavel }}</td>
-                            <td class="td-items"><i name="edit" class="bi bi-pencil-square" data-consulta="{{ json_encode($valor, JSON_UNESCAPED_UNICODE) }}" ></i></td>
-                            <td class="td-items"><i name="delete" id="{{ $valor->id }}" class="bi bi-x-square-fill"></i></td>
+                            <td class="td-items"><i name="edit" class="bi bi-pencil-square"
+                                    data-consulta="{{ json_encode($valor, JSON_UNESCAPED_UNICODE) }}"></i></td>
+                            <td class="td-items"><a href="/consulta/delete/{{ $valor->id }}"><i name="delete"
+                                    class="bi bi-x-square-fill"></i></a></td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-                {!! $consultas->links( "pagination::bootstrap-4") !!}
+            {!! $consultas->links( "pagination::bootstrap-4") !!}
+        </div>
+        <div class="change password">
+            <button id="changePassword" class="btn btn-primary"> Mudar Senha do Usuário </button>
         </div>
     </div>
-@stop
+    @stop

@@ -15,34 +15,10 @@ class ConsultaController extends Controller
         $this->Consulta = $Consulta;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //return $this->Consulta->allConsulta();
-    }
-
-    public function allConsulta()
-    {
-        return $this->Consulta->allConsulta();
-    }
 
     public function allPaginate()
     {
         return $this->Consulta->allPaginate();
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
     }
 
     /**
@@ -53,29 +29,11 @@ class ConsultaController extends Controller
      */
     public function store(Request $request)
     {
-        
-    }
+        $data = $request->input();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        
-    }
+        $this->Consulta->storeConsulta($data);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        
+        return redirect('/dashboard');
     }
 
     /**
@@ -85,9 +43,13 @@ class ConsultaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        
+        $data = $request->input();
+
+        $this->Consulta->updateConsulta($data);
+
+        return redirect('/dashboard');
     }
 
     /**
@@ -98,6 +60,9 @@ class ConsultaController extends Controller
      */
     public function destroy($id)
     {
-        
+        $this->Consulta->deleteConsulta($id);
+
+        return redirect('/dashboard');
+
     }
 }
